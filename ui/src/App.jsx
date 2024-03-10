@@ -4,7 +4,7 @@ import Layout from "./components/Layout";
 
 import Home from "./pages/Home";
 import Users from "./pages/Users";
-import New_User from "./pages/New_User";
+import NewUser from "./pages/NewUser";
 
 const router = createBrowserRouter([
     {
@@ -15,13 +15,13 @@ const router = createBrowserRouter([
                 element: <Home />,
             },
             {
-                path: "newuser",
-                element: <New_User />,
-            },
-            {
                 path: "users",
                 element: <Users />,
             },
+            {
+                path: "users/new",
+                element: <NewUser />,
+            }
         ],
     },
 ]);
