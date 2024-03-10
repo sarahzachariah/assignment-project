@@ -10,6 +10,8 @@ import {
     IxDropdownHeader,
     IxDropdownItem,
     IxMessageBar,
+    IxContent,
+    IxContentHeader,
 } from "@siemens/ix-react";
 
 function NewUser() {
@@ -45,8 +47,16 @@ function NewUser() {
                 .then((res) => {
                     return res.text();
                 })
-                .then((res) => {
-                    setApiSuccess(res);
+                .then(() => {
+                    setApiSuccess(true);
+                    setFormData({
+                        fullname: "",
+                        mobile_number: "",
+                        email: "",
+                        password: "",
+                        country: "",
+                    });
+                    document.getElementById("newuserform").reset();
                 });
         } catch (error) {
             // setError(error.message);
@@ -54,25 +64,19 @@ function NewUser() {
     };
 
     return (
-        <>
-            <IxMessageBar
-                style={
-                    apiMessage == null
-                        ? { display: "none" }
-                        : { display: "block" }
-                }
-            >
-                {apiMessage}
-            </IxMessageBar>
-            <div className="wrapper">
-                <h1 className="header-title">User List</h1>
-            </div>
-            <form
-                // className="needs-validation "
-                noValidate
-                onSubmit={handleSubmit}
-            >
-                <IxLayoutGrid>
+        <IxContent>
+            <IxContentHeader
+                slot="header"
+                headerTitle="Create a New User"
+            ></IxContentHeader>
+
+            <IxLayoutGrid>
+                <form
+                    // className="needs-validation "
+                    id="newuserform"
+                    noValidate
+                    onSubmit={handleSubmit}
+                >
                     <IxRow>
                         <IxCol size="8" size-md="3">
                             <label htmlFor="fullname">Full name</label>
@@ -90,7 +94,8 @@ function NewUser() {
                         <IxCol size="8" size-md="3">
                             <label htmlFor="mobile_number">Mobile Number</label>
                             <input
-                                type="number"
+                                type="tel"
+                                pattern="[0-9]{10}"
                                 className="is-invalid"
                                 id="mobile_number"
                                 name="mobile_number"
@@ -142,12 +147,19 @@ function NewUser() {
 
                     <IxRow>
                         <IxCol>
-                            <IxButton type="submit">Submit form</IxButton>
+                            <IxButton type="submit">Create</IxButton>
                         </IxCol>
                     </IxRow>
-                </IxLayoutGrid>
-            </form>
-        </>
+                </form>
+            </IxLayoutGrid>
+
+            <IxMessageBar style={
+                    apiMessage == null
+                        ? { display: "none" }
+                        : { display: "block" }
+                }>A New User Created</IxMessageBar>
+            
+        </IxContent>
     );
 }
 
