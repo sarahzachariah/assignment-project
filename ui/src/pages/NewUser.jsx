@@ -13,6 +13,8 @@ import {
 } from "@siemens/ix-react";
 
 function NewUser() {
+    const apiBaseUrl = "https://d2d47ezagao0kf.cloudfront.net/api/";
+
     const [apiMessage, setApiSuccess] = useState(null);
     const [formData, setFormData] = useState({
         fullname: "",
@@ -32,17 +34,14 @@ function NewUser() {
         e.preventDefault();
         console.log("Form submitted with data:", formData);
         try {
-            const response = fetch(
-                "http://localhost/assignment-project/api/src/index.php/create",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    mode: "no-cors",
-                    body: JSON.stringify(formData),
-                }
-            )
+            const response = fetch(apiBaseUrl + "/create", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                mode: "no-cors",
+                body: JSON.stringify(formData),
+            })
                 .then((res) => {
                     return res.text();
                 })

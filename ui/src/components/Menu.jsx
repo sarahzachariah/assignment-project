@@ -14,8 +14,8 @@ function Menu() {
             <IxMenuItem tab-icon="home" onClick={() => onNavClick('/')}>
                 Home
             </IxMenuItem>
-            <IxMenuItem tab-icon="add-user" onClick={() => onNavClick('newuser')}>New User</IxMenuItem>
             <IxMenuItem tab-icon="user-management" onClick={() => onNavClick('users')}>Users</IxMenuItem>
+            <IxMenuItem tab-icon="add-user" onClick={() => onNavClick('user/new')}>New User</IxMenuItem>
             <IxMenuItem tab-icon="info" slot="bottom">
                 v1.0.0-Beta
             </IxMenuItem>
