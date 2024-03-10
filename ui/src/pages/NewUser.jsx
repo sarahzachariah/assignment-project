@@ -9,12 +9,11 @@ import {
     IxDropdown,
     IxDropdownHeader,
     IxDropdownItem,
-    IxContent,
-    IxContentHeader,
+    IxMessageBar,
 } from "@siemens/ix-react";
 
 function NewUser() {
-    const [flag, setApiSuccess] = useState(0);
+    const [apiMessage, setApiSuccess] = useState(null);
     const [formData, setFormData] = useState({
         fullname: "",
         mobile_number: "",
@@ -45,11 +44,10 @@ function NewUser() {
                 }
             )
                 .then((res) => {
-                    return res.json();
+                    return res.text();
                 })
                 .then((res) => {
-                    setApiSuccess(res.message);
-                    console.log(res);
+                    setApiSuccess(res);
                 });
         } catch (error) {
             // setError(error.message);
@@ -57,11 +55,19 @@ function NewUser() {
     };
 
     return (
-        <IxContent>
-            <IxContentHeader
-                slot="header"
-                headerTitle="Create a New User"
-            ></IxContentHeader>
+        <>
+            <IxMessageBar
+                style={
+                    apiMessage == null
+                        ? { display: "none" }
+                        : { display: "block" }
+                }
+            >
+                apiMessage
+            </IxMessageBar>
+            <div className="wrapper">
+                <h1 className="header-title">User List</h1>
+            </div>
             <form
                 // className="needs-validation "
                 noValidate
@@ -142,7 +148,7 @@ function NewUser() {
                     </IxRow>
                 </IxLayoutGrid>
             </form>
-        </IxContent>
+        </>
     );
 }
 
