@@ -56,6 +56,7 @@ class ApiController {
     // TODO - Fix the default values, add a condition to restrict multiple entries for same details.
     public function createUser($requestData){
         try {
+            $json = [];
             $query = "insert into users (name, mobile_number, email, password, country) values(
                 '" . $requestData['fullname'] . "', " . $requestData['mobile_number'] . ", '" . $requestData['email'] . "', 
                 '" . $requestData['password'] . "', '" . $requestData['country'] . "')";
@@ -63,9 +64,9 @@ class ApiController {
             $createTable = $this->checkConnection($query);
 
             if ($createTable === TRUE) {
-                $json = "New record created successfully";
+                $json = ['status' => "Success", 'message' => "New record created successfully"];
             } else {
-                $json = "Error: " . $sql . "<br>" . $createTable->error;
+                $json = ['status' => "Fail", 'error' => "Error: " . $sql . "<br>" . $createTable->error];
             }
     
             return $this->returnFormat(json_encode($json));

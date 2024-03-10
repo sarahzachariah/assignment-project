@@ -14,6 +14,7 @@ import {
 import '../App.css'
 
 function New_User() {
+  const [flag, setApiSuccess] = useState(0);
    const [formData, setFormData] = useState({
     fullname: '',
     mobile_number: '',
@@ -30,7 +31,6 @@ function New_User() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // You can handle form submission here, e.g., send data to a server
     console.log('Form submitted with data:', formData);
     try {
       const response = fetch('http://localhost/assignment-project/api/src/index.php/create', {
@@ -39,14 +39,15 @@ function New_User() {
           'Content-Type': 'application/json'
         },
         mode: 'no-cors',
-        body: formData
-      }).then(response => {
-        return response.text();
-      }).then(response => {
-        console.log(response);
+        body: JSON.stringify(formData)
+      }).then(res => {
+        return res.json();
+      }).then(res => {
+        setApiSuccess(res.message);
+        console.log(res);
       });
     }catch (error) {
-      setError(error.message);
+      // setError(error.message);
     }
   };
 
@@ -118,7 +119,7 @@ function New_User() {
             <IxCol size="8" size-md="3">
               <label htmlFor="country">Country</label>
               <input
-                type="number"
+                type="text"
                 className='is-invalid'
                 id="country"
                 name="country"

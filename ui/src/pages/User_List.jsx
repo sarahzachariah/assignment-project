@@ -97,7 +97,7 @@ function User_List() {
     <h2 className='users-title'>Registered Users</h2>
     <hr className='divider'/>
     {/* <div>{gridOptions.rowSelection}</div> */}
-    <div >
+    <div className='button-wrapper'>
         <IxButton className="update" onClick={updateUser}>
           Update
         </IxButton>
@@ -105,7 +105,7 @@ function User_List() {
           Delete
         </IxButton>
     </div>
-    <div style={{ height: '12rem', width: '100%' }} className="ag-theme-quartz ag-theme-alpine-dark">
+    <div style={{ height: '20rem', width: '100%'}} className="ag-theme-quartz ag-theme-alpine-dark">
         <AgGridReact
           className="grid"
           rowData={rowData}
