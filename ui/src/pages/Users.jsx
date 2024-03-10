@@ -5,10 +5,9 @@ import "ag-grid-community/styles/ag-grid.css"
 // import "ag-grid-community/styles/ag-theme-quartz.css"
 import '@siemens/ix-aggrid/dist/ix-aggrid/ix-aggrid.css'
 
-import '../css/user.css'
 import { IxButton } from '@siemens/ix-react'
 
-function User_List() {
+function Users() {
   // const [gridOptions, setData] = useState(0)
   const [rowData, setRowData] = useState(0);
   const [columnDefs, setColumnDefs] = useState(0);
@@ -25,7 +24,7 @@ function User_List() {
   const fetchData = () => {
     try {
       // setData(null);
-      const response = fetch('http://localhost/assignment-project/api/src/index.php/user').then(res => {
+      const response = fetch('http://ec2-13-234-202-76.ap-south-1.compute.amazonaws.com/api/user').then(res => {
         setColumnDefs(0);
         setRowData(0);
         return res.json();
@@ -60,7 +59,7 @@ function User_List() {
     e.preventDefault();
     console.log(selectedRows);
     try {
-      const response = fetch('http://localhost/assignment-project/api/src/index.php/update', {
+      const response = fetch('http://ec2-13-234-202-76.ap-south-1.compute.amazonaws.com/api/update', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -82,7 +81,7 @@ function User_List() {
     console.log(selectedRows['id']);
     let id = selectedRows['id'] ?? 0;
     try {
-      const response = fetch('http://localhost/assignment-project/api/src/index.php/delete?id='+id).then(response => {
+      const response = fetch('http://ec2-13-234-202-76.ap-south-1.compute.amazonaws.com/api/delete?id='+id).then(response => {
         return response.text();
       }).then(response => {
         console.log(response);
@@ -121,4 +120,4 @@ function User_List() {
   )
 }
 
-export default User_List
+export default Users;

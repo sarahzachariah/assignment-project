@@ -3,10 +3,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/Layout";
 
 import Home from "./pages/Home";
+import Users from "./pages/Users";
 import New_User from "./pages/New_User";
-import User_List from "./pages/User_List";
-
-import "./App.css";
 
 const router = createBrowserRouter([
     {
@@ -22,7 +20,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "users",
-                element: <User_List />,
+                element: <Users />,
             },
         ],
     },

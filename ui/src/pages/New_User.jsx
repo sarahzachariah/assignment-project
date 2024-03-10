@@ -11,8 +11,6 @@ import {
   IxDropdownItem,
 } from '@siemens/ix-react';
 
-import '../App.css'
-
 function New_User() {
   const [flag, setApiSuccess] = useState(0);
    const [formData, setFormData] = useState({

@@ -5,17 +5,10 @@ function Home() {
         <IxContent>
             <IxContentHeader
                 slot="header"
-                headerTitle="Welcome to the Dashboard"
+                headerTitle="Welcome to Sarah's Assignment"
             ></IxContentHeader>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-            et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-            Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-            sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
-            et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-            accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-            no sea takimata sanctus est Lorem ipsum dolor sit amet.
+            This application is built on ReactJS using Vite.js for the frontend. The API is built on Core PHP.
+            The application User Experience is developed using Siemens IX.
         </IxContent>
     );
 }
