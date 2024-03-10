@@ -5,10 +5,11 @@ import "ag-grid-community/styles/ag-grid.css"
 // import "ag-grid-community/styles/ag-theme-quartz.css"
 import '@siemens/ix-aggrid/dist/ix-aggrid/ix-aggrid.css'
 
-import { IxButton } from '@siemens/ix-react'
+import '../css/user.css'
+import { IxButton, IxMessageBar } from '@siemens/ix-react'
 
-function Users() {
-  // const [gridOptions, setData] = useState(0)
+function User_List() {
+  const [apiMessage, setApiSuccess] = useState(null)
   const [rowData, setRowData] = useState(0);
   const [columnDefs, setColumnDefs] = useState(0);
   const [selectedRows, setSelectedRows] = useState(0);
@@ -69,6 +70,7 @@ function Users() {
       }).then(response => {
         return response.text();
       }).then(response => {
+        setApiSuccess(response);
         console.log(response);
       });
     }catch (error) {
@@ -81,10 +83,13 @@ function Users() {
     console.log(selectedRows['id']);
     let id = selectedRows['id'] ?? 0;
     try {
-      const response = fetch('http://ec2-13-234-202-76.ap-south-1.compute.amazonaws.com/api/delete?id='+id).then(response => {
+      const response = fetch('http://localhost/assignment-project/api/src/index.php/delete?id='+id, {
+        mode: 'no-cors'
+      }).then(response => {
         return response.text();
       }).then(response => {
-        console.log(response);
+        setApiSuccess(response);
+        window.location.reload();
       });
     }catch (error) {
       setError(error.message);
@@ -97,10 +102,10 @@ function Users() {
     <hr className='divider'/>
     {/* <div>{gridOptions.rowSelection}</div> */}
     <div className='button-wrapper'>
-        <IxButton className="update" onClick={updateUser}>
+        {/* <IxButton className="update" variant="secondary" onClick={updateUser}>
           Update
-        </IxButton>
-        <IxButton className="del" onClick={deleteUser}>
+        </IxButton> */}
+        <IxButton className="del" variant="secondary" onClick={deleteUser}>
           Delete
         </IxButton>
     </div>

@@ -64,12 +64,14 @@ class ApiController {
             $createTable = $this->checkConnection($query);
 
             if ($createTable === TRUE) {
-                $json = ['status' => "Success", 'message' => "New record created successfully"];
+                // $json = ['status' => "Success", 'message' => "New record created successfully"];
+                $json = "New record created successfully";
             } else {
-                $json = ['status' => "Fail", 'error' => "Error: " . $sql . "<br>" . $createTable->error];
+                // $json = ['status' => "Fail", 'error' => "Error: " . $sql . "<br>" . $createTable->error];
+                $json = "Error: " . $sql . "<br>" . $createTable->error;
             }
     
-            return $this->returnFormat(json_encode($json));
+            return $this->returnFormat($json);
         } catch (Exception $e) {
             return $e->getMessage();
         }

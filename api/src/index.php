@@ -34,5 +34,5 @@
         echo $e;
     }
 
-    return $resp;
+    echo $resp;
 ?>
