@@ -78,7 +78,7 @@ function NewUser() {
                     onSubmit={handleSubmit}
                 >
                     <IxRow>
-                        <IxCol size="8" size-md="3">
+                        <IxCol size="12" sizeMd="8" sizeLg="6">
                             <label htmlFor="fullname">Full name</label>
                             <input
                                 type="text"
@@ -91,7 +91,7 @@ function NewUser() {
                         </IxCol>
                     </IxRow>
                     <IxRow>
-                        <IxCol size="8" size-md="3">
+                        <IxCol size="12" sizeMd="8" sizeLg="6">
                             <label htmlFor="mobile_number">Mobile Number</label>
                             <input
                                 type="tel"
@@ -106,7 +106,7 @@ function NewUser() {
                         </IxCol>
                     </IxRow>
                     <IxRow>
-                        <IxCol size="8" size-md="3">
+                        <IxCol size="12" sizeMd="8" sizeLg="6">
                             <label htmlFor="email">Email ID</label>
                             <input
                                 type="text"
@@ -119,7 +119,7 @@ function NewUser() {
                         </IxCol>
                     </IxRow>
                     <IxRow>
-                        <IxCol size="8" size-md="3">
+                        <IxCol size="12" sizeMd="8" sizeLg="6">
                             <label htmlFor="password">Password</label>
                             <input
                                 type="password"
@@ -132,7 +132,7 @@ function NewUser() {
                         </IxCol>
                     </IxRow>
                     <IxRow>
-                        <IxCol size="8" size-md="3">
+                        <IxCol size="12" sizeMd="8" sizeLg="6">
                             <label htmlFor="country">Country</label>
                             <input
                                 type="text"
