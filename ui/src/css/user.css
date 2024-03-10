@@ -1,0 +1,12 @@
+body {
+    background-color: white;
+}
+
+.users-title {
+    color: black;
+    text-align: center;
+}
+
+.divider {
+    margin-bottom: 5rem;
+}

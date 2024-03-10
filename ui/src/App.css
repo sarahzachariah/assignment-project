@@ -1,0 +1,30 @@
+body{
+  /* background-color: beige; */
+  /* text-align: center; */
+  justify-content: center;
+}
+
+.wrapper {
+  padding: auto;
+  margin: auto;
+}
+
+.header-title {
+  color: blueviolet;
+}
+
+.menu-block {
+  text-align: center;
+}
+
+.menu-button {
+  margin: 1rem;
+  background-image: linear-gradient(to right, #009999 , #78cbcb);
+  font-size: larger;
+}
+
+.grid{
+  width: 50rem;
+  height: 25rem;
+  background-color: aliceblue;
+}
