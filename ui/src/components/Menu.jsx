@@ -11,12 +11,12 @@ function Menu() {
 
     return (
         <IxMenu>
-            <IxMenuItem tab-icon="home" onClick={() => onNavClick('/')}>
+            <IxMenuItem icon="home" onClick={() => onNavClick('/')}>
                 Home
             </IxMenuItem>
-            <IxMenuItem tab-icon="user-management" onClick={() => onNavClick('users')}>Users</IxMenuItem>
-            <IxMenuItem tab-icon="add-user" onClick={() => onNavClick('user/new')}>New User</IxMenuItem>
-            <IxMenuItem tab-icon="info" slot="bottom">
+            <IxMenuItem icon="user-management" onClick={() => onNavClick('users')}>Users</IxMenuItem>
+            <IxMenuItem icon="add-user" onClick={() => onNavClick('user/new')}>New User</IxMenuItem>
+            <IxMenuItem icon="info" slot="bottom">
                 v1.0.0-Beta
             </IxMenuItem>
         </IxMenu>

@@ -8,6 +8,7 @@ import "@siemens/ix-aggrid/dist/ix-aggrid/ix-aggrid.css";
 import { IxButton, IxMessageBar } from "@siemens/ix-react";
 
 function Users() {
+    const apiBaseUrl = "https://d2d47ezagao0kf.cloudfront.net/api/";
     const [apiMessage, setApiSuccess] = useState(null);
     const [rowData, setRowData] = useState(0);
     const [columnDefs, setColumnDefs] = useState(0);
@@ -25,7 +26,7 @@ function Users() {
         try {
             // setData(null);
             const response = fetch(
-                "http://localhost/assignment-project/api/src/index.php/user"
+                apiBaseUrl + "user"
             )
                 .then((res) => {
                     setColumnDefs(0);
@@ -63,7 +64,7 @@ function Users() {
         console.log(selectedRows);
         try {
             const response = fetch(
-                "http://localhost/assignment-project/api/src/index.php/update",
+                apiBaseUrl + "update",
                 {
                     method: "POST",
                     headers: {
@@ -91,7 +92,7 @@ function Users() {
         let id = selectedRows["id"] ?? 0;
         try {
             const response = fetch(
-                "http://localhost/assignment-project/api/src/index.php/delete?id=" +
+                apiBaseUrl + "delete?id=" +
                     id,
                 {
                     mode: "no-cors",
