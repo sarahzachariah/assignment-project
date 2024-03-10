@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { AgGridReact } from "ag-grid-react";
-// import { GridOptions } from 'ag-grid-community'
 import "ag-grid-community/styles/ag-grid.css";
 // import "ag-grid-community/styles/ag-theme-quartz.css"
 import "@siemens/ix-aggrid/dist/ix-aggrid/ix-aggrid.css";
@@ -10,9 +9,9 @@ import { IxButton, IxMessageBar } from "@siemens/ix-react";
 function Users() {
     const apiBaseUrl = "https://d2d47ezagao0kf.cloudfront.net/api/";
     const [apiMessage, setApiSuccess] = useState(null);
-    const [rowData, setRowData] = useState(0);
-    const [columnDefs, setColumnDefs] = useState(0);
-    const [selectedRows, setSelectedRows] = useState(0);
+    const [rowData, setRowData] = useState([]);
+    const [columnDefs, setColumnDefs] = useState([]);
+    const [selectedRows, setSelectedRows] = useState([]);
     let gridApi;
 
     const gridOptions = {
@@ -29,8 +28,8 @@ function Users() {
                 apiBaseUrl + "user"
             )
                 .then((res) => {
-                    setColumnDefs(0);
-                    setRowData(0);
+                    setColumnDefs([]);
+                    setRowData([]);
                     return res.json();
                 })
                 .then((res) => {
@@ -129,8 +128,7 @@ function Users() {
             </div>
             <div
                 style={{ height: "20rem", width: "100%" }}
-                className="ag-theme-quartz ag-theme-alpine-dark"
-            >
+                className="ag-theme-alpine-dark ag-theme-ix">
                 <AgGridReact
                     className="grid"
                     rowData={rowData}
