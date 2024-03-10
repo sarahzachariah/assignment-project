@@ -1,4 +1,4 @@
-import { IxMenu, IxMenuItem } from "@siemens/ix-react";
+import { IxIcon, IxMenu, IxMenuItem } from "@siemens/ix-react";
 import { useNavigate } from "react-router-dom";
 
 function Menu() {
@@ -17,7 +17,7 @@ function Menu() {
             <IxMenuItem icon="user-management" onClick={() => onNavClick('users')}>Users</IxMenuItem>
             <IxMenuItem icon="add-user" onClick={() => onNavClick('user/new')}>New User</IxMenuItem>
             <IxMenuItem icon="info" slot="bottom">
-                v1.0.0-Beta
+                v1.0.0-Beta <div style={{display: 'none'}}><IxIcon name="info" size="16"></IxIcon></div>
             </IxMenuItem>
         </IxMenu>
     );
