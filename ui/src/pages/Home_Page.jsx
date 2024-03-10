@@ -17,6 +17,7 @@ function Home_Page() {
         <IxButton className="menu-button" variant="primary">
           Create User
         </IxButton>
+        <a href='newuser'>createuser</a>
       </div>
     </div>
     </>

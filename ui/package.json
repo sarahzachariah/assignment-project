@@ -10,13 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@react-navigation/native": "^6.1.14",
-    "@react-navigation/stack": "^6.3.25",
     "@siemens/ix-aggrid": "^2.1.1",
     "@siemens/ix-icons": "^2.1.0",
     "@siemens/ix-react": "^2.1.1",
-    "ag-grid-community": "^31.1.1",
-    "ag-grid-react": "^31.1.1",
+    "ag-grid-community": "^30.2.1",
+    "ag-grid-react": "^30.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-native-reanimated": "^2.17.0",
