@@ -32,9 +32,9 @@ function NewUser() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Form submitted with data:", formData);
+        // console.log("Form submitted with data:", formData);
         try {
-            const response = fetch(apiBaseUrl + "/create", {
+            const response = fetch(apiBaseUrl + "create", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -62,7 +62,7 @@ function NewUser() {
                         : { display: "block" }
                 }
             >
-                apiMessage
+                {apiMessage}
             </IxMessageBar>
             <div className="wrapper">
                 <h1 className="header-title">User List</h1>

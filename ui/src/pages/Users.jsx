@@ -35,16 +35,15 @@ function Users() {
                 .then((res) => {
                     setColumnDefs(res.columnDefs);
                     setRowData(res.rowData);
-                    console.log(res);
+                    // console.log(res);
                 });
         } catch (error) {
-            console.error("Error fetching data:", error);
+            // console.error("Error fetching data:", error);
         }
     };
 
     useEffect(() => {
         fetchData();
-        console.log("i fire once");
     }, []);
 
     function handleSelectionChanged() {
@@ -60,7 +59,6 @@ function Users() {
 
     const updateUser = (e) => {
         e.preventDefault();
-        console.log(selectedRows);
         try {
             const response = fetch(
                 apiBaseUrl + "update",
@@ -78,7 +76,7 @@ function Users() {
                 })
                 .then((response) => {
                     setApiSuccess(response);
-                    console.log(response);
+                    // console.log(response);
                 });
         } catch (error) {
             setError(error.message);
@@ -87,7 +85,6 @@ function Users() {
 
     const deleteUser = (e) => {
         e.preventDefault();
-        console.log(selectedRows["id"]);
         let id = selectedRows["id"] ?? 0;
         try {
             const response = fetch(
