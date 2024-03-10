@@ -1,3 +1,4 @@
+
 /* body {
     background-color: white;
 } */
@@ -9,4 +10,8 @@
 
 .divider {
     margin-bottom: 5rem;
+}
+
+.grid-view {
+    display: block;
 }

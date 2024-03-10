@@ -28,3 +28,7 @@ body{
   height: 25rem;
   background-color: aliceblue;
 }
+
+.del {
+  float: right;
+}

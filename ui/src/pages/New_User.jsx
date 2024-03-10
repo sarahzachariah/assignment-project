@@ -10,25 +10,46 @@ import {
   IxDropdownHeader,
   IxDropdownItem,
 } from '@siemens/ix-react';
+import { useForm } from 'react-hook-form';
 
 import '../App.css'
 
 function New_User() {
-  const [count, setCount] = useState(0)
-  
-  // const { register, handleSubmit, formState } = useForm({
-  //   defaultValues: {
-  //     firstName: undefined,
-  //     lastName: undefined,
-  //     userName: undefined,
-  //   },
-  //   shouldFocusError: false,
-  //   shouldUseNativeValidation: true,
-  // });
+   const [formData, setFormData] = useState({
+    fullname: '',
+    mobile_number: '',
+    email: '',
+    password: '',
+    country: ''
+  });
 
-  // const onSubmit = (data: any) => {
-  //   console.log(data);
-  // };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // You can handle form submission here, e.g., send data to a server
+    console.log('Form submitted with data:', formData);
+    try {
+      const response = fetch('http://localhost/assignment-project/api/src/index.php/create', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        mode: 'no-cors',
+        body: formData
+      }).then(response => {
+        return response.text();
+      }).then(response => {
+        console.log(response);
+      });
+    }catch (error) {
+      setError(error.message);
+    }
+  };
 
   return (
     <>
@@ -36,79 +57,78 @@ function New_User() {
         <h1 className='header-title'>User List</h1>
       </div>
       <form
-        className="needs-validation "
+        // className="needs-validation "
         noValidate
-        // onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit}
       >
         <IxLayoutGrid>
           <IxRow>
             <IxCol size="8" size-md="3">
-              <label htmlFor="validationCustom01">Full name</label>
+              <label htmlFor="fullname">Full name</label>
               <input
                 type="text"
                 className='is-invalid'
-                id="validationCustom01"
+                id="fullname"
+                name="fullname"
+                value={formData.fullname}
+                onChange={handleChange}      
               />
-              {/* <div className="invalid-feedback"> Please choose a first name. </div> */}
-              {/* <div className="valid-feedback"> Looks good! </div> */}
             </IxCol>
           </IxRow>
           <IxRow>
             <IxCol size="8" size-md="3">
-              <label htmlFor="validationCustom01">Mobile Number</label>
+              <label htmlFor="mobile_number">Mobile Number</label>
               <input
-                type="text"
+                type="number"
                 className='is-invalid'
-                id="validationCustom01"
+                id="mobile_number"
+                name="mobile_number"
+                value={formData.mobile_number}
+                onChange={handleChange}     
+                maxLength="10"     
               />
-              {/* <div className="invalid-feedback"> Please choose a first name. </div> */}
-              {/* <div className="valid-feedback"> Looks good! </div> */}
             </IxCol>
           </IxRow>
           <IxRow>
             <IxCol size="8" size-md="3">
-              <label htmlFor="validationCustom01">Email ID</label>
+              <label htmlFor="email">Email ID</label>
               <input
                 type="text"
                 className='is-invalid'
-                id="validationCustom01"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}     
               />
-              {/* <div className="invalid-feedback"> Please choose a first name. </div> */}
-              {/* <div className="valid-feedback"> Looks good! </div> */}
             </IxCol>
           </IxRow>
           <IxRow>
             <IxCol size="8" size-md="3">
-              <label htmlFor="validationCustom01">Password</label>
+              <label htmlFor="password">Password</label>
               <input
-                type="text"
+                type="password"
                 className='is-invalid'
-                id="validationCustom01"
+                id="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}        
               />
-              {/* <div className="invalid-feedback"> Please choose a first name. </div> */}
-              {/* <div className="valid-feedback"> Looks good! </div> */}
             </IxCol>
           </IxRow>
           <IxRow>
             <IxCol size="8" size-md="3">
-              <label htmlFor="validationCustom01">Country</label>
+              <label htmlFor="country">Country</label>
               <input
-                type="text"
+                type="number"
                 className='is-invalid'
-                id="validationCustom02"
+                id="country"
+                name="country"
+                value={formData.country}
+                onChange={handleChange}       
               />
-              {/* <IxDropdown trigger="validationCustom02">
-                <IxDropdownHeader label="Category"></IxDropdownHeader>
-                <IxDropdownItem label="Item 2"></IxDropdownItem>
-                <IxDropdownItem label="Item 3"></IxDropdownItem>
-                <IxDropdownItem label="Item 4"></IxDropdownItem>
-                <IxDivider></IxDivider>
-                <IxDropdownItem label="Item 5"></IxDropdownItem>
-              </IxDropdown> */}
-              {/* <div className="invalid-feedback"> Please choose a first name. </div> */}
-              {/* <div className="valid-feedback"> Looks good! </div> */}
             </IxCol>
           </IxRow>
+
 
           <IxRow>
             <IxCol>
